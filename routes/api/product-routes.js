@@ -9,9 +9,9 @@ router.get("/", (req, res) => {
   Product.findAll({
     attributes: ["id", "product_name", "price", "stock", "category_id"],
     include: [
-      category,
+      Category,
       {
-        model: tag,
+        model: Tag,
         through: ProductTag,
       },
     ],
@@ -31,10 +31,12 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
+    // be sure to include its associated Category and Tag data
+
     include: [
-      category,
+      Category,
       {
-        model: tag,
+        model: Tag,
         through: ProductTag,
       },
     ],
@@ -44,7 +46,6 @@ router.get("/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-  // be sure to include its associated Category and Tag data
 });
 
 // create new product

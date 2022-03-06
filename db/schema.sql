@@ -24,7 +24,8 @@ DROP TABLE IF EXISTS productTag;
 --     product_name VARCHAR(30) NOT NULL,
 --     price DECIMAL (10,2) NOT NULL,
 --     stock INTEGER DEFAULT (10) CHECK (stock>=1),
---     category_id INTEGER references category (id)
+--     category_id
+--  INTEGER references category (id)
 -- );
 
 -- CREATE TABLE tag (
